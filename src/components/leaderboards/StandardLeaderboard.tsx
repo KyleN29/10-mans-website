@@ -16,6 +16,14 @@ interface RawPlayerData {
     total_kills: number;
     total_rounds_played: number;
     wins: number;
+    tdm_mmr: number;
+    tdm_wins: number;
+    tdm_losses: number;
+    tdm_total_kills: number;
+    tdm_total_deaths: number;
+    tdm_matches_played: number;
+    tdm_avg_kills: number;
+    tdm_kd_ratio: number;
 }
 
 interface ComputedPlayerData {

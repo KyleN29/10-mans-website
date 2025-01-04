@@ -37,11 +37,28 @@ let db;
 })();
 
 
-app.use(express.static(__dirname + "/dist"));
+app.use(express.static(__dirname + "/dist", {setHeaders: (res, path) => {
+    if (path.endsWith('.html')) {
+      // Prevent caching of HTML files
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    }
+}
+  }));
 
 app.get('/api/mmr_data', async (req, res) => {
     try {
         const itemsCollection = db.collection('mmr_data');
+        const items = await itemsCollection.find().toArray();
+        console.log("hey!")
+        res.json(items);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})
+
+app.get('/api/tdm_mmr_data', async (req, res) => {
+    try {
+        const itemsCollection = db.collection('tdm_mmr_data');
         const items = await itemsCollection.find().toArray();
         console.log("hey!")
         res.json(items);
