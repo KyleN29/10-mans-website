@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./TDMLeaderboard.css";
-import { tdmData } from "../../data";
 
 interface RawTDMPlayerData {
   _id: string;
@@ -44,8 +43,8 @@ const TDMLeaderboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await axios.get("/api/tdm_mmr_data");
-        updateData(tdmData);
+        const response = await axios.get("/api/tdm_mmr_data");
+        updateData(response.data);
       } catch (error) {
         console.error("Error fetching data. Retrying in 5 seconds...", error);
         setTimeout(fetchData, 5000); // Retry after 5 seconds

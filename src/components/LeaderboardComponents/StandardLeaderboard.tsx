@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./StandardLeaderboard.css";
-import { mmrData } from "../../data";
 
 interface RawPlayerData {
   _id: string;
@@ -47,8 +46,8 @@ const StandardLeaderboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await axios.get("/api/mmr_data");
-        updateData(mmrData);
+        const response = await axios.get("/api/mmr_data");
+        updateData(response.data);
       } catch (error) {
         console.error("Error fetching data. Retrying in 5 seconds...", error);
         setTimeout(fetchData, 5000); // Retry after 5 seconds
