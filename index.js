@@ -67,5 +67,14 @@ app.get('/api/tdm_mmr_data', async (req, res) => {
     }
 })
 
+// Catch-all route for dynamic React routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
+
+
+
+
 const port = parseInt(process.env.PORT) || 8080;
 
