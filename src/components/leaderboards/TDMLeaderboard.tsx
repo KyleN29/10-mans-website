@@ -126,7 +126,7 @@ const TDMLeaderboard = () => {
                             User{getSortArrow("name")}
                         </th>
                         <th onClick={() => handleSort("tdm_mmr")}>
-                            MMR{getSortArrow("mmr")}
+                            MMR{getSortArrow("tdm_mmr")}
                         </th>
                         <th onClick={() => handleSort("wins")}>
                             Wins{getSortArrow("wins")}
