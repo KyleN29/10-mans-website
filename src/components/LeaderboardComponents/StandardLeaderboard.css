@@ -1,31 +1,29 @@
-
-
 .card {
-    padding: 2em;
+  padding: 2em;
 }
 
 .read-the-docs {
-    color: #888;
+  color: #888;
 }
+
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
+  margin: 0 auto;
 }
 th {
-    cursor: pointer;
-    width: 100px;
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+  cursor: pointer;
+  width: 100px;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
 }
 td {
-    border-bottom: 1px solid #b8b8b8;
+  border-bottom: 1px solid #b8b8b8;
 }
 th:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-
-
