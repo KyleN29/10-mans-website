@@ -1,6 +1,6 @@
 import React from "react";
-import StandardLeaderboard from "../components/leaderboards/StandardLeaderboard.tsx";
-import TDMLeaderboard from "../components/leaderboards/TDMLeaderboard.tsx";
+import StandardLeaderboard from "../components/LeaderboardComponents/StandardLeaderboard.tsx";
+import TDMLeaderboard from "../components/LeaderboardComponents/TDMLeaderboard.tsx";
 
 function App() {
     return (
