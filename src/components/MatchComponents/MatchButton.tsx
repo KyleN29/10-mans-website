@@ -10,9 +10,8 @@ interface MatchData {
     defender_score: number;
 }
 
-
 const MatchButton = ({ matchData }: { matchData: MatchData }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
     return (
         <button id="matchButton" onClick={() => navigate(`/matches/${matchData.match_id}`)}>
