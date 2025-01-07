@@ -2,6 +2,8 @@
   background-color: #181818;
   color: white;
   position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
   top: 0px;
   width: 100vw;
   border-bottom: solid 2px black;
