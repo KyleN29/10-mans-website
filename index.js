@@ -56,7 +56,7 @@ function getDefenderScore(matchTeams) {
 }
 
 const app = express();
-const uri = ;
+const uri = process.env.URI_KEY;
 const dbName = "valorant";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
