@@ -6,6 +6,55 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+function timeAgo(timestamp) {
+    const now = new Date();
+    const date = new Date(timestamp);
+    const diffInSeconds = Math.floor((now - date) / 1000);
+  
+    if (diffInSeconds < 60) {
+      return `${diffInSeconds}s ago`;
+    }
+  
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    if (diffInMinutes < 60) {
+      return `${diffInMinutes}m ago`;
+    }
+  
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) {
+      return `${diffInHours}h ago`;
+    }
+  
+    const diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays < 30) {
+      return `${diffInDays}d ago`;
+    }
+  
+    const diffInMonths = Math.floor(diffInDays / 30);
+    if (diffInMonths < 12) {
+      return `${diffInMonths}mo ago`;
+    }
+  
+    const diffInYears = Math.floor(diffInMonths / 12);
+    return `${diffInYears}y ago`;
+}
+
+function getAttackerScore(matchTeams) {
+    for (const team of matchTeams) {
+        if (team.team_id == "Red") {
+            return team.rounds.won
+        }
+    }
+}
+
+function getDefenderScore(matchTeams) {
+    for (const team of matchTeams) {
+        if (team.team_id == "Blue") {
+            return team.rounds.won
+        }
+    }
+}
+
 const app = express();
 const uri = process.env.URI_KEY;
 const dbName = "valorant";
@@ -17,6 +66,7 @@ const client = new MongoClient(uri, {
         deprecationErrors: true,
     },
 });
+
 
 let db;
 // Connect to MongoDB and start the server only after a successful connection
@@ -70,19 +120,19 @@ app.get('/api/tdm_mmr_data', async (req, res) => {
 app.get('/api/recent_matches', async (req, res) => {
     try {
         const itemsCollection = db.collection('matches');
-        const items = await itemsCollection.find().toArray();
-
+        const items = await itemsCollection.find().sort({"metadata.started_at": -1}).toArray();
         let recent_matches = []
         for (const match of items) {
             let match_data = { 
                 _id: match._id,
                 map_name: match.metadata.map.name,
                 match_id: match.metadata.match_id,
+                time_since_played: timeAgo(match.metadata.started_at),
+                attacker_score: getAttackerScore(match.teams),
+                defender_score: getDefenderScore(match.teams),
             }
             recent_matches.push(match_data)
         }
-
-        console.log("hey!")
         res.json(recent_matches);
     } catch (error) {
         res.status(500).json({ message: error.message });

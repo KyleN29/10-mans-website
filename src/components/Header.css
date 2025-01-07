@@ -1,0 +1,32 @@
+#header {
+    place-items: normal !important;
+}
+#headerUnorderedList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+#headerListItem {
+float: left;
+}
+
+#headerHyperlink {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+background-color: #333;
+border-radius: 0px
+}
+#headerHyperlink:focus {
+    outline: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#headerHyperlink:hover {
+background-color: #111;
+}

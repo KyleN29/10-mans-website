@@ -1,0 +1,20 @@
+#matchButton {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    width: 500px;
+    align-content: center;
+    color: white;
+    background-color: inherit;
+    border-radius: 0;
+}
+#matchButtonLeftInfo {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+#matchButtonRightInfo {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}

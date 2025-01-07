@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MatchButton from "../components/MatchComponents/MatchButton";
+import Header from "../components/Header";
+import './RecentMatches.css'
+
+interface MatchData {
+    _id: string;
+    map_name: string;
+    match_id: string;
+    time_since_played: string;
+    attacker_score: number;
+    defender_score: number;
+}
 
 function RecentMatches() {
-    const [matchData, setMatchData] = useState<any>([]);
+    const [matchData, setMatchData] = useState<MatchData[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,12 +33,15 @@ function RecentMatches() {
         fetchData();
     }, []);
 
+
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div>
-            {matchData.map((match: any) => (
+        <div id="matchesContainer">  
+            {matchData.map((match: MatchData) => (
+                <div id="matchesContainerItem">
                 <MatchButton matchData={match} />
+                </div>
             ))}
         </div>
     );

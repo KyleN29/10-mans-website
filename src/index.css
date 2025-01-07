@@ -14,9 +14,8 @@
 
 }
 #root {
-    max-width: 1280px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0;
     text-align: center;
 }
   a {
@@ -30,8 +29,6 @@
   
   body {
     margin: 0;
-    display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
     background-color: #242424;
@@ -75,4 +72,14 @@
       background-color: #f9f9f9;
     }
   }
-  
+
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px;
+}   

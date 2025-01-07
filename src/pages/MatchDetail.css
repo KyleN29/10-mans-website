@@ -1,0 +1,32 @@
+#matchDetailFlexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px; /* Adjust based on preference */
+    margin: 0 auto;
+}
+
+#matchDetailFlexHeader,
+#matchDetailFlexPlayer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#matchDetailFlexHeader div,
+#matchDetailFlexPlayer div {
+    flex: 1; /* Ensures equal column width */
+    text-align: center;
+}
+#matchDetailFlexHeader div:first-child,
+#matchDetailFlexPlayer div:first-child {
+    flex: 3; /* Make the Name column twice as wide */
+}
+.redBackground {
+    background-color: #ba3f3f;
+}
+.greenBackground {
+    background-color: #64ba4c;
+}
