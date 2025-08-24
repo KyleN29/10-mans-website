@@ -1,3 +1,5 @@
-# 10 Mans Website
+# Valorant 10-Mans Website
 
-Web app to display information from the 10 Mans Bot
+A web companion for our Dsicord 10-mans bot. The website aggregates match results to show a leaderboard of various in-game stats such as MMR, kills, deaths, wins, and losses.
+
+Discord Bot: https://github.com/Ducks-Code-Monkeys/Ducks-10-Mans
